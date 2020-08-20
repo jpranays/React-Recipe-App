@@ -114,18 +114,22 @@ class App extends Component {
 						</div>
 					</form>
 				</div>
-				<div id="recipe-container">
+				<div className="recipe-data-container">
 					<div id="spinner-container"></div>
-					{this.state.dataArray.map(
-						({ recipe: { label, calories, image } }, index) => (
-							<Recipe
-								key={index}
-								title={label}
-								calories={calories}
-								image={image}
-							/>
-						)
-					)}
+					<div className="recipe-container">
+						{this.state.dataArray.map(
+							({ recipe: { label, image, ingredientLines, url } }, index) => (
+								<Recipe
+									key={index}
+									id={index}
+									title={label}
+									image={image}
+									ingredient={ingredientLines}
+									recipeLink={url}
+								/>
+							)
+						)}
+					</div>
 				</div>
 			</div>
 		);

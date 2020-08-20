@@ -16,39 +16,38 @@ class App extends Component {
 	componentDidMount = () => {
 		this.fetchData().catch((err) => {
 			if (err) {
-				console.log(err);
 				this.setState({ error: err });
-				if (this.state.error) {
-					document.write(this.state.error);
-				}
+				document.querySelector("#spinner-container").classList.remove("loaded");
+				document.querySelector("#food-spinner").classList.remove("spinner");
 			}
 		});
-		console.log("Component Mounted");
 	};
-	componentDidUpdate() {
-		console.log("Just Updated");
-	}
 	handleChange = (e) => {
 		e.preventDefault();
-		console.log("Submitted");
 		this.fetchData().catch((err) => {
 			if (err) {
-				document.querySelector("#spinner-container").innerHTML = "Error";
-				console.log(err);
+				document.querySelector("#spinner-container").classList.remove("loaded");
+				document.querySelector("#food-spinner").classList.remove("spinner");
+				this.setState({ error: err });
 			}
 		});
 	};
 	fetchData = async () => {
-		document.querySelector("#spinner-container").innerHTML = "Loading...";
+		document.querySelector("#spinner-container").classList.add("loaded");
+		document.querySelector("#food-spinner").classList.add("spinner");
 		const response = await fetch(
 			`https://api.edamam.com/search?q=${
 				this.state.query || "chicken"
 			}&app_id=${this.APP_ID}&app_key=${this.API_KEY}`
 		);
 		const data = await response.json();
-		document.querySelector("#spinner-container").innerHTML = "";
+		document.querySelector("#spinner-container").classList.remove("loaded");
+		document.querySelector("#food-spinner").classList.remove("spinner");
+
 		this.setState({ dataArray: data.hits });
-		console.log(data.hits);
+		if (this.state.error) {
+			this.setState({ error: null });
+		}
 	};
 	render() {
 		return (
@@ -115,21 +114,32 @@ class App extends Component {
 					</form>
 				</div>
 				<div className="recipe-data-container">
-					<div id="spinner-container"></div>
-					<div className="recipe-container">
-						{this.state.dataArray.map(
-							({ recipe: { label, image, ingredientLines, url } }, index) => (
-								<Recipe
-									key={index}
-									id={index}
-									title={label}
-									image={image}
-									ingredient={ingredientLines}
-									recipeLink={url}
-								/>
-							)
-						)}
+					<div id="spinner-container">
+						<div className="spinner" id="food-spinner">
+							{" "}
+						</div>
 					</div>
+					{this.state.error ? (
+						<div className="error-container">
+							<h1>Error Occured</h1>
+							<h3>Try again later</h3>
+						</div>
+					) : (
+						<div className="recipe-container">
+							{this.state.dataArray.map(
+								({ recipe: { label, image, ingredientLines, url } }, index) => (
+									<Recipe
+										key={index}
+										id={index}
+										title={label}
+										image={image}
+										ingredient={ingredientLines}
+										recipeLink={url}
+									/>
+								)
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 		);

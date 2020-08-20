@@ -9,9 +9,25 @@ const Recipe = ({ title, image, ingredient, recipeLink, id }) => {
 		"linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)",
 		"linear-gradient(to right, #fa709a 0%, #fee140 100%)",
 		"linear-gradient(to right, #43e97b 0%, #38f9d7 100%)",
-		"linear-gradient(to right, #fa709a 0%, #fee140 100%)",
 		"linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)",
+		"linear-gradient(to top, #96fbc4 0%, #f9f586 100%)",
+		"linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
 	];
+	function shuffle(array) {
+		var currentIndex = array.length,
+			temporaryValue,
+			randomIndex;
+
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+	}
+	shuffle(backgroundGradients);
+
 	return (
 		<div
 			className="card"

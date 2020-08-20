@@ -1,0 +1,29 @@
+[33mcommit c89d77740e5542e6f23f09f2898c055d8c4b2d90[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Pranay <pranay1315@gmail.com>
+Date:   Thu Aug 20 17:16:29 2020 +0530
+
+    Added Spinner ,fixed minor bugs
+
+[33mcommit b808ecee498890e66dd6a1d6bb42e354a29ae032[m
+Author: Pranay <pranay1315@gmail.com>
+Date:   Thu Aug 20 12:12:12 2020 +0530
+
+    Display changed to grid, Added gradients to cards
+
+[33mcommit 432d4cf999f9be4af0281312e5f5d01d7f7cab29[m
+Author: Pranay <pranay1315@gmail.com>
+Date:   Wed Aug 19 12:46:00 2020 +0530
+
+    Changed FontFamily to Arvo,added FA icons
+
+[33mcommit 126fc6790cad9391782fd17b1810c80aee6b72e6[m
+Author: Pranay <pranay1315@gmail.com>
+Date:   Tue Aug 18 23:58:08 2020 +0530
+
+    Added some styling
+
+[33mcommit 5402ae9c35ab2c045a3620db6d48231411811682[m
+Author: Pranay <pranay1315@gmail.com>
+Date:   Tue Aug 18 21:48:49 2020 +0530
+
+    Built Boiler Plate of RECIPE APP

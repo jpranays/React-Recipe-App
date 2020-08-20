@@ -54,7 +54,7 @@ const Recipe = ({ title, image, ingredient, recipeLink, id }) => {
 						target="blank"
 						title={title}
 					>
-						Full Recipe Link
+						Full Recipe
 					</a>
 				</p>
 			</div>

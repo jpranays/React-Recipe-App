@@ -5,8 +5,8 @@ import "./style.css";
 class App extends Component {
 	constructor() {
 		super();
-		this.APP_ID = "f90763b9";
-		this.API_KEY = "4f178338bbff31ecef9be50fad3fc7ad";
+		this.APP_ID = process.env.REACT_APP_API_ID;
+		this.API_KEY = process.env.REACT_APP_API_KEY;
 		this.state = {
 			query: "chicken",
 			dataArray: [],

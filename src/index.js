@@ -62,7 +62,7 @@ class App extends Component {
 						>
 							<input
 								className="search-bar"
-								type="text"
+								type="search"
 								value={this.state.query}
 								onChange={(e) => {
 									this.setState({ query: e.target.value });

@@ -75,6 +75,7 @@ class App extends Component {
 									outline: "none",
 									fontWeight: "bold",
 									boxShadow: "1px 1px 8px 1px grey",
+								        textAlign:"center"
 								}}
 							/>
 							<span

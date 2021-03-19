@@ -1,4 +1,4 @@
-import React from "react";
+import React,{memo} from "react";
 
 const Recipe = ({ title, image, ingredient, recipeLink, id }) => {
 	let backgroundGradients = [
@@ -61,4 +61,4 @@ const Recipe = ({ title, image, ingredient, recipeLink, id }) => {
 		</div>
 	);
 };
-export default Recipe;
+export default memo(Recipe);
